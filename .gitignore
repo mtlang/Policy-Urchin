@@ -1,0 +1,5 @@
+vendor/*
+output/*
+simulate.yml
+simulate.json
+cache/cache.json

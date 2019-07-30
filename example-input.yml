@@ -1,0 +1,26 @@
+--- 
+audits:
+  - id: IAM
+    description: Looks for Admin IAM Actions
+    actions:  
+      - iam:CreateUser 
+      - iam:CreateGroup 
+      - iam:DeleteUser
+  - id: S3
+    description: Looks for S3 Read/Write Access 
+    actions: 
+      - s3:PutObject
+      - s3:GetObject
+    resources:
+      - "arn:aws:s3:::example-bucket/*"
+  - id: SQS 
+    description: Looks for SQS get-message on a specific queue
+    actions: 
+      - sqs:GetMessage
+    resources:
+      - arn:aws:sqs:us-east-1:111111111111:example-queue
+  - id: Dynamo
+    description: DynamoDB list-tables
+    actions: 
+      - "dynamodb:ListTables"
+    resources:
